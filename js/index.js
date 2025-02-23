@@ -1,59 +1,17 @@
-const PRODUCTOS = [
+const CONTENEDOR_TARJETAS = document.getElementById("productos-container");
 
-    {
-        id: 1,
-        nombre: "Producto 1",
-        precio: 100,
-        imagen: "./Asets/imagenes/1.jpg"
-    },
-    {
-        id: 2,
-        nombre: "Producto 2",
-        precio: 200,
-        imagen: "https://via.placeholder.com/150"
-    },
-    {
-        id: 3,
-        nombre: "Producto 3",
-        precio: 200,
-        imagen: "https://via.placeholder.com/150"
-    },
-    {
-        id: 4,
-        nombre: "Producto 4",
-        precio: 200,
-        imagen: "https://via.placeholder.com/150"
-    },
-    {
-        id: 5,
-        nombre: "Producto 5",
-        precio: 200,
-        imagen: "https://via.placeholder.com/150"
-    },
-    {
-        id: 6,
-        nombre: "Producto 6",
-        precio: 200,
-        imagen: "https://via.placeholder.com/150"
-    },
-    {
-        id: 7,
-        nombre: "Producto 7",
-        precio: 200,
-        imagen: "https://via.placeholder.com/150"
-    },
-    {
-        id: 8,
-        nombre: "Producto 8",
-        precio: 200,
-        imagen: "https://via.placeholder.com/150"
-    },
-    {
-        id: 9,
-        nombre: "Producto 9",
-        precio: 200,
-        imagen: "https://via.placeholder.com/150"
-    },
+function crearTarjetasProductosInicio(productos){
+    productos.forEach(producto => {
+        const nuevoProducto = document.createElement("div");
+        nuevoProducto.classList = "tarjeta-producto";
+        nuevoProducto.innerHTML = `
+        <img src="${producto.imagen}" alt="${producto.nombre}" class="tarjeta-imagen">
+        <h3>${producto.nombre}</h3>
+        <h4>$${producto.precio}</h4>
+        <button class="boton-comprar">Comprar</button>
+        `
+        CONTENEDOR_TARJETAS.appendChild(nuevoProducto);
+    });
+}
 
-
-]
+crearTarjetasProductosInicio(productos);
