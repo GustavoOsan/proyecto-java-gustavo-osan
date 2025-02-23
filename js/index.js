@@ -11,7 +11,9 @@ function crearTarjetasProductosInicio(productos){
         <button class="boton-comprar">Comprar</button>
         `
         CONTENEDOR_TARJETAS.appendChild(nuevoProducto);
+        nuevoProducto.getElementsByTagName("button")[0].addEventListener("click", () => agregarAlCarrito(producto));    
     });
+
 }
 
 crearTarjetasProductosInicio(productos);
