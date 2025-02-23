@@ -5,7 +5,7 @@ function agregarAlCarrito(producto) {
         const NUEVO_PRODUCTO = getNuevoProductoParaMemoria(producto);
         localStorage.setItem('carrito', JSON.stringify([NUEVO_PRODUCTO]));
     } else {
-        const INDICE_PRODUCTO = MEMORIA.findIndex(producto => producto.id === carrito.id);
+        const INDICE_PRODUCTO = MEMORIA.findIndex(carrito => carrito.id === producto.id);
         console.log(INDICE_PRODUCTO);
         const NUEVA_MEMORIA = MEMORIA;
 
