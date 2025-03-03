@@ -24,6 +24,7 @@
 
     <!--Css-->
     <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/carrito.css">
 
 
     <!--title favicon-->
@@ -34,9 +35,11 @@
 <body>
     <header>
         <nav>
-            <a href="./index.html"><img id="logo-header" src="./Assets/img/sleep-token-logo.png" alt="Logo Sleep token"></a>
+            <a href="./index.html"><img id="logo-header" src="./Assets/img/sleep-token-logo.png"
+                    alt="Logo Sleep token"></a>
             <div>
-                <a href="#"><img src="./Assets/img/carrito-icon.png" alt="Carrito de compras"><span id="cuenta-carrito">0</span></a>
+                <a href="#"><img src="./Assets/img/carrito-icon.png" alt="Carrito de compras"><span
+                        id="cuenta-carrito">0</span></a>
             </div>
         </nav>
     </header>
@@ -48,7 +51,15 @@
 
     <main>
         <h1>MI CARRITO</h1>
-     </main>
+
+        <section id="productos-container"></section>
+        <section id="totales">
+            <p>Total Unidades: <span id="unidades"></span></p>
+            <p>Total Precio: $<span id="total"></span></p>
+            <button disable>Finalizar Compra </button>
+        </section>
+
+    </main>
 
 
     <footer>
@@ -58,9 +69,8 @@
         </div>
     </footer>
 
-    <script src="./js/productos.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="./js/carrito.js"></script>
+    <script src="./js/carrito.js" defer></script>
+    <script src="./js/carritoFinal.js" defer></script>
 
 </body>
 

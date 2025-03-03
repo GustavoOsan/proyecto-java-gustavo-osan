@@ -1,0 +1,37 @@
+#productos-container{
+    width: 700px;
+    margin: auto;
+}
+
+.tarjeta-producto{
+    display: flex;
+    gap: 10px;
+    height: 300px;
+    width: 550px;
+    align-items: center;
+}
+
+.tarjeta-producto img{
+    height: 100%;
+}
+
+.tarjeta-producto h3{
+    width: 150px;
+}
+
+.tarjeta-contenido{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#totales, #vacio{
+    margin-top: 20px;
+    text-align: center;
+}
