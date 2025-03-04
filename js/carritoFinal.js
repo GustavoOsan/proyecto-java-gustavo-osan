@@ -1,6 +1,9 @@
 const CONTENEDOR_TARJETAS = document.getElementById("productos-container");
 const unidadesElement = document.getElementById("unidades");
 const precioElement = document.getElementById("total");
+const carritoVacioElement = document.getElementById("carrito-vacio");  
+const totalesElement = document.getElementById("totales"); 
+const botonReset = document.getElementById("reiniciar");
 
 function crearTarjetasProductosInicio() {
     CONTENEDOR_TARJETAS.innerHTML = "";
@@ -37,6 +40,7 @@ function crearTarjetasProductosInicio() {
                     restarAlCarrito(producto)
                     crearTarjetasProductosInicio();
                     actualizarTotales();
+                    revisarMensajeVacio();
                 })
 
         });
@@ -60,3 +64,12 @@ function actualizarTotales() {
         precioElement.innerText = total;
     }
 }
+
+
+function revisarMensajeVacio(){
+    const productos = JSON.parse(localStorage.getItem(`carrito`));
+    carritoVacioElement.classList.toggle("escondido",productos && productos.length > 0);
+    totales.classList.toggle("escondido",!(productos && productos.length > 0));
+}
+
+revisarMensajeVacio();    

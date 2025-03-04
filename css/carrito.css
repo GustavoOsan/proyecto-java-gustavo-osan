@@ -31,7 +31,11 @@
     gap: 10px;
 }
 
-#totales, #vacio{
+#totales, #carrito-vacio{
     margin-top: 20px;
     text-align: center;
+}
+
+.escondido{
+    display: none;
 }
