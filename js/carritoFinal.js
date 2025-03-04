@@ -1,9 +1,9 @@
 const CONTENEDOR_TARJETAS = document.getElementById("productos-container");
-const unidadesElement = document.getElementById("unidades");
-const precioElement = document.getElementById("total");
-const carritoVacioElement = document.getElementById("carrito-vacio");
-const totalesElement = document.getElementById("totales");
-const botonReset = document.getElementById("reiniciar");
+const UNIDADES_ELEMENT = document.getElementById("unidades");
+const PRECIO_ELEMENT = document.getElementById("total");
+const CARRITO_VACIO_ELEMENT = document.getElementById("carrito-vacio");
+const TOTALES_ELEMENT = document.getElementById("totales");
+const BOTON_RESET = document.getElementById("reiniciar");
 
 function crearTarjetasProductosInicio() {
     CONTENEDOR_TARJETAS.innerHTML = "";
@@ -73,15 +73,15 @@ function actualizarTotales() {
             unidades += producto.cantidad;
             total += producto.precio * producto.cantidad;
         })
-        unidadesElement.innerText = unidades;
-        precioElement.innerText = total;
+        UNIDADES_ELEMENT.innerText = unidades;
+        PRECIO_ELEMENT.innerText = total;
     }
 }
 
 function revisarMensajeVacio() {
     const productos = JSON.parse(localStorage.getItem(`carrito`));
-    carritoVacioElement.classList.toggle("escondido", productos && productos.length > 0);
-    totalesElement.classList.toggle("escondido", !(productos && productos.length > 0));
+    CARRITO_VACIO_ELEMENT.classList.toggle("escondido", productos && productos.length > 0);
+    TOTALES_ELEMENT.classList.toggle("escondido", !(productos && productos.length > 0));
 }
 
 revisarMensajeVacio();

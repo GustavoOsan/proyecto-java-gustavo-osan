@@ -1,4 +1,4 @@
-const productos = [
+const PRODUCTOS = [
     {
         id: 1,
         nombre: 'Hoddie Black',

@@ -1,6 +1,6 @@
 const CONTENEDOR_TARJETAS = document.getElementById("productos-container");
 
-function crearTarjetasProductosInicio(productos){
+function crearTarjetasProductosInicio(productos) {
     productos.forEach(producto => {
         const nuevoProducto = document.createElement("div");
         nuevoProducto.classList = "tarjeta-producto";
@@ -9,12 +9,11 @@ function crearTarjetasProductosInicio(productos){
         <h3>${producto.nombre}</h3>
         <h4>$${producto.precio}</h4>
         <button class="boton-comprar">Comprar</button>
-        `
+        `;
         CONTENEDOR_TARJETAS.appendChild(nuevoProducto);
-        nuevoProducto.getElementsByTagName("button")[0].addEventListener("click", () => agregarAlCarrito(producto),);    
+        nuevoProducto.getElementsByTagName("button")[0].addEventListener("click", () => agregarAlCarrito(producto));
     });
-
 }
 
-crearTarjetasProductosInicio(productos);
+crearTarjetasProductosInicio(PRODUCTOS);
 
