@@ -1,8 +1,8 @@
 const CONTENEDOR_TARJETAS = document.getElementById("productos-container");
 const unidadesElement = document.getElementById("unidades");
 const precioElement = document.getElementById("total");
-const carritoVacioElement = document.getElementById("carrito-vacio");  
-const totalesElement = document.getElementById("totales"); 
+const carritoVacioElement = document.getElementById("carrito-vacio");
+const totalesElement = document.getElementById("totales");
 const botonReset = document.getElementById("reiniciar");
 
 function crearTarjetasProductosInicio() {
@@ -26,6 +26,7 @@ function crearTarjetasProductosInicio() {
         </div>
         `;
             CONTENEDOR_TARJETAS.appendChild(nuevoProducto);
+            
             nuevoProducto
                 .getElementsByTagName("button")[0]
                 .addEventListener("click", (e) => {
@@ -37,12 +38,24 @@ function crearTarjetasProductosInicio() {
             nuevoProducto
                 .getElementsByTagName("button")[1]
                 .addEventListener("click", (e) => {
-                    restarAlCarrito(producto)
+                    restarAlCarrito(producto);
                     crearTarjetasProductosInicio();
                     actualizarTotales();
                     revisarMensajeVacio();
-                })
-
+                    
+                    // Mostrar notificación utilizando Toastify
+                    Toastify({
+                        text: "Has eliminado el producto",
+                        duration: 4000,
+                        gravity: "top", // `top` o `bottom`
+                        position: "center", // `left`, `center` o `right`
+                        stopOnFocus: true, // Previene que se cierre el toast al pasar el mouse
+                        style: {
+                            background: "linear-gradient(to right, #f44336, #ff5722)", // Color rojo
+                        },
+                        onClick: function() {} // Callback después de hacer clic
+                    }).showToast(); // Mostrar el toast
+                });
         });
         actualizarNroCarrito();
     }
@@ -65,11 +78,10 @@ function actualizarTotales() {
     }
 }
 
-
-function revisarMensajeVacio(){
+function revisarMensajeVacio() {
     const productos = JSON.parse(localStorage.getItem(`carrito`));
-    carritoVacioElement.classList.toggle("escondido",productos && productos.length > 0);
-    totales.classList.toggle("escondido",!(productos && productos.length > 0));
+    carritoVacioElement.classList.toggle("escondido", productos && productos.length > 0);
+    totalesElement.classList.toggle("escondido", !(productos && productos.length > 0));
 }
 
-revisarMensajeVacio();    
+revisarMensajeVacio();

@@ -1,4 +1,3 @@
-// Función para agregar un producto al carrito
 function agregarAlCarrito(producto) {
     const MEMORIA = JSON.parse(localStorage.getItem('carrito'));
     let cuenta = 0;
@@ -23,6 +22,19 @@ function agregarAlCarrito(producto) {
 
     // Actualizar el número del carrito cada vez que se añade un producto
     actualizarNroCarrito();
+
+    // Mostrar notificación utilizando Toastify
+    Toastify({
+        text: "Producto agregado",
+        duration: 4000,
+        gravity: "top", // `top` o `bottom`
+        position: "center", // `left`, `center` o `right`
+        stopOnFocus: true, // Previene que se cierre el toast al pasar el mouse
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function() {} // Callback después de hacer clic
+    }).showToast(); // Mostrar el toast
 }
 
 // Función para restar un producto del carrito
@@ -60,4 +72,3 @@ function actualizarNroCarrito() {
 document.addEventListener('DOMContentLoaded', (event) => {
     actualizarNroCarrito(); // Llama a la función al cargar la página
 });
-
